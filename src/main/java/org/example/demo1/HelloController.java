@@ -30,7 +30,7 @@ public class HelloController {
 
         btn.setText(String.valueOf(nowSym));
 
-        if (gameField[0][0] == gameField [0][1] && gameField[0][0] == gameField[0][2] && !Character.isWhitespace(gameField[0][0]))  {
+        if (gameField[0][0] == gameField[0][1] && gameField[0][0] == gameField[0][2] && (gameField[0][0] == 'x' || gameField[0][0] == 'o')) {
             isGame = false;
         }
         nowSym = nowSym == 'x' ? 'o' : 'x';
