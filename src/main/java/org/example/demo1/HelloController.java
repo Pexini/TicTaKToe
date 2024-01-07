@@ -5,7 +5,9 @@ import java.util.ResourceBundle;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.layout.GridPane;
 
 public class HelloController {
@@ -21,8 +23,10 @@ public class HelloController {
 
     @FXML
     void btnClick(ActionEvent event) {
-        if (!isGame) return;
+
         Button btn = (Button) event.getSource();
+        if (!isGame || btn.getText() != "") return;
+
         int rowIndex = GridPane.getRowIndex(btn) == null ? 0 : GridPane.getRowIndex(btn);
         int columIndex = GridPane.getColumnIndex(btn) == null ? 0 : GridPane.getColumnIndex(btn);
 
@@ -31,6 +35,8 @@ public class HelloController {
         btn.setText(String.valueOf(nowSym));
 
         if (gameField[0][0] == gameField[0][1] && gameField[0][0] == gameField[0][2] && (gameField[0][0] == 'x' || gameField[0][0] == 'o')) {
+           Alert alert = new Alert(Alert.AlertType.INFORMATION, "Победитель :" + btn.getText() + " # ", ButtonType.OK);
+            alert.showAndWait();
             isGame = false;
         } else if (gameField[1][0] == gameField[1][1] && gameField[1][0] == gameField[1][2] && (gameField[1][0] == 'x' || gameField[1][0] == 'o')) {
             isGame = false;
