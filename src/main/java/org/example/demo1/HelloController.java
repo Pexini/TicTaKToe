@@ -17,17 +17,22 @@ public class HelloController {
     private URL location;
     private char nowSym = 'x';
     private char gameField[][] = new char[3][3];
+    private boolean isGame = true;
 
     @FXML
     void btnClick(ActionEvent event) {
+        if (!isGame) return;
         Button btn = (Button) event.getSource();
         int rowIndex = GridPane.getRowIndex(btn) == null ? 0 : GridPane.getRowIndex(btn);
         int columIndex = GridPane.getColumnIndex(btn) == null ? 0 : GridPane.getColumnIndex(btn);
 
-        System.out.println(rowIndex);
-        System.out.println(columIndex);
+      gameField [rowIndex] [columIndex] = nowSym;
 
         btn.setText(String.valueOf(nowSym));
+
+        if (gameField [0] [0] == gameField && gameField [0] [0] == gameField [0] [2]) {
+            isGame = false;
+        }
         nowSym = nowSym == 'x' ? 'o' : 'x';
     }
 
