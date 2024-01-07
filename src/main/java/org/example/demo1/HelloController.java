@@ -35,7 +35,7 @@ public class HelloController {
         } else if (gameField[1][0] == gameField[1][1] && gameField[1][0] == gameField[1][2] && (gameField[1][0] == 'x' || gameField[1][0] == 'o')) {
             isGame = false;
         }
-        if (gameField[2][0] == gameField[2][1] && gameField[2][0] == gameField[1][2] && (gameField[2][0] == 'x' || gameField[2][0] == 'o')) {
+        if (gameField[2][0] == gameField[2][1] && gameField[2][0] == gameField[2][2] && (gameField[2][0] == 'x' || gameField[2][0] == 'o')) {
             isGame = false;
         }
         if (gameField[0][0] == gameField[1][0] && gameField[0][0] == gameField[2][0] && (gameField[0][0] == 'x' || gameField[0][0] == 'o')) {
@@ -49,10 +49,13 @@ public class HelloController {
             isGame = false;
         }
 
-        if (gameField[0][0] == gameField[1][1] && gameField[0][0] == gameField[2][2] && (gameField[0][1] == 'x' || gameField[0][0] == 'o')) {
+        if (gameField[0][0] == gameField[1][1] && gameField[0][0] == gameField[2][2] && (gameField[0][0] == 'x' || gameField[0][0] == 'o')) {
             isGame = false;
         }
         if (gameField[2][2] == gameField[1][1] && gameField[2][2] == gameField[0][2] && (gameField[2][2] == 'x' || gameField[0][0] == 'o')) {
+            isGame = false;
+        }
+        if (gameField[2][0] == gameField[1][1] && gameField[2][0] == gameField[0][2] && (gameField[2][0] == 'x' || gameField[0][0] == 'o')) {
             isGame = false;
         }
 
